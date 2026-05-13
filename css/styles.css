@@ -1,0 +1,31 @@
+/*Ajustes generales de lista_usuario*/
+/*Ajustes al texto*/
+h1{
+    text-align: center;
+    padding: 60px;
+}
+/*Boton para registra nuevos usuarios*/
+.btn_usuario_new{
+    text-align: end;
+    padding-right:110px;
+}
+/*Ajustes al div que contiene la tabla en general*/
+.listado{
+    margin: 20px auto;
+    width: 90%;
+    padding: 15px;
+
+}
+/*Ajustes a la tabla dentro del div*/
+.listado table{
+    width: 100%;
+    text-align: center;
+}
+/*Ajustes generales al crear_usuario*/
+.formulario{
+    text-align: center;
+    height: 80vh;
+}
+label{
+    padding-right: 100px;
+}
