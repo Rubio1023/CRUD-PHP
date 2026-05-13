@@ -12,6 +12,8 @@ Se realiza la peticion en el index.php, el controlador captura la peticion y det
 **DB configuracion**
 En cuanto a la configuracion de la db se pasa los parametros para la conexion y se va a realizar por inyeccion de dependencia, inyeccion de dependencia(DI) es un patron de diseño que permite a una clase recibir sus dependencias desde el exteriror, en lugar de crearlas internamente.
 
+Como sugerencia para crear un CRUD con MVC primero crear la BD con sus tablas y demas, en otras palabras que este completa. Posteriormente crear el MODEL donde ya que esta es la que se comunica con la DB y crea todo practicamente. despues de esta se crea el CONTROLLER el cual es el que se comunica con el MODEL osea realiza peticiones. Sigue el INDEX.PHP el cual es el punto de entrada este index recibe las variables por la URL por lo tanto instancia en CONTROLLER y ejecuta la accion que el usuario pidio el fin del index es centralizar todo y evitar los archivos sueltos o mal comunicados en otras palabras todo pasa por el index. Por ultimo seria el VIEW estas sera lo que el usuario ve e interactua, esto solo contiene etiquetas HTML y pequeños ecos o partes de PHP para mostrar lo que el controlador les envio
+
 ![alt text](image.png)
 
 ---
@@ -279,12 +281,8 @@ class usuarioController{
 
 # Codigo de las vistas html y php
 
-Esta es la parte visual del codigo lo que ve e interactua el usuario como tal se creo 3 vistas la principal que seria lista_usuario.php que muestra en pantalla todas las listas de los usuarios registrados en la DB la vista del editar_usuarios.php y por ultimo la vista de crear_usuario.php estas vistas se manejan por medio del index igual que todo lo demas.
+Esta es la parte visual del codigo lo que ve e interactua el usuario como tal se creo 3 vistas la principal que seria lista_usuario.php que muestra en pantalla todas las listas de los usuarios registrados en la DB la vista del editar_usuarios.php y por ultimo la vista de crear_usuario.php estas vistas se manejan por medio del index igual que todo lo demas. Tener presente que se uso bootstrap para algunas cosas en todas las vistas al igual que el css 
 
----
-
-# Codigo del html de la vista de lista_usuario.php
- 
 ---
 
 ```html
