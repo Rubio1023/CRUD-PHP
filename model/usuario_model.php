@@ -12,12 +12,13 @@
 
         //funcion constructor para conectar a la db
         public function __construct($pdo){
-            //Se le asigna la conexion de la db a la variable privada el cual trae la conexion con pdo desde db.php
+            /*Se le asigna la conexion de la base de datos a la variable privada db el cual trae la conexion con pdo desde db.php.
+            $pdo tiene toda la configuracion para realizar la conexion*/
             $this -> db = $pdo;
         }
 
         //Funcion para crear usuario
-        public function crear($name, $lastname, $email, $phone){
+        public function crearUsuarioModel($name, $lastname, $email, $phone){
             //Validamos la creacion del usuario
             try {
                 //Variable a la que se le pasa el comando sql
@@ -36,7 +37,7 @@
         }
 
         //Funcion para listar o mostrar los datos
-        public function mostrarDatos(){
+        public function listadoUsuariosModel(){
             //validamos listar
             try {
                 //cVAriable que contiene el sql 
@@ -50,22 +51,22 @@
                 //Control de error
             } catch (PDOException $e) {
                 //Error log para visualizar el error 
-                error_log("Error al realizar el listado de usuarios: ".$e->getMwssage());
+                error_log("Error al realizar el listado de usuarios: ".$e->getMessage());
                 //Retorna el array vacio 
                 return[];
             }
         }
 
         //Funcion para editar el usuario
-        public function editar($id, $name, $lastname, $email, $phone){
+        public function editarUsuarioModel($id, $name, $lastname, $email, $phone){
             //Validamos el editar
             try {
                 //Variable con el comando sql
-                $sql = "UPDATE usuarios SET name => :name, lastname => :lastname, email => :email, phone => :phone WHERE id :id";
+                $sql = "UPDATE usuarios SET name = :name, lastname = :lastname, email = :email, phone = :phone WHERE id = :id";
                 //Variable donde se le pasa el sql y el prepare
                 $stmt = $this -> db -> prepare($sql);
                 //Se envia o retorna el valor de $stmt y se envia a la db
-                return $stmt -> execute([':name' => $name, ':lastname' => $lastname, ':email' => $email, ':phone' => $phone, 'id' => $id]);
+                return $stmt -> execute([':name' => $name, ':lastname' => $lastname, ':email' => $email, ':phone' => $phone, ':id' => $id]);
                 //Si hay un error lanza el error y el catch lo atrapa 
             } catch (PDOException $e) {
                 //Error log para visiaulizar el tipo de error
@@ -76,11 +77,11 @@
         }
 
         //Funcion para eliminar
-        public function eliminar($id){
+        public function eliminarUsuarioModel($id){
             //Validamos el eliminar
             try {
                 //Variable con el comando para eliminar
-                $sql = "DELETE FROM usuario WHERE id = :id";
+                $sql = "DELETE FROM usuarios WHERE id = :id";
                 //Variable donde se le pasa el sql y el prepare
                 $stmt = $this -> db -> prepare($sql);
                 //Se envia la peticion de eliminar 
