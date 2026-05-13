@@ -27,9 +27,13 @@ Parte encargada de la conexion a la db en este caso a supabase:
 * **$user:** identificador de la unico de la base de datos.
 * **$pass:** el password que se le coloco a la base de datos.
 
+---
+
 # Se crea la clase para la conexion
 
 La clase conexion se encarga de crear valga la redundancia la conexio a la basse de datos con unos parametros fijos que regularme siempre se utilizan en estos caso como el host, port, databse, user y pass estos nombres de variables pueden cambiar un poco pero sigue siendo lo mismo 
+
+---
 
 ```php
 <?php
@@ -75,10 +79,13 @@ La clase conexion se encarga de crear valga la redundancia la conexio a la basse
 ?>
 
 ```
+---
 
 # Codigo del model se encarga de proteger la base de datos
 
 Gestiona los datos y la lógica de negocio. Consulta bases de datos, valida información y manipula el estado de la aplicación. En otras palabras se encarga de comunicar con la DB para realizar ciertas tareas como insertar, actualizar y demas interaciones directas con la DB osea maneja codigo sql.
+
+---
 
 ```php
 // se usa para establecer la conexion
@@ -186,10 +193,13 @@ class conexionDB{
 }
 
 ```
+---
 
 # Codigo del controlador
 
 Actúa como intermediario y "cerebro" que gestiona el flujo de la aplicación. Recibe las entradas del usuario (clics, formularios, URL), procesa la lógica de negocio, solicita datos al Modelo y selecciona la Vista adecuada para mostrar la respuesta, sin interactuar directamente con la interfaz. Solo se comunica con el model.
+
+---
 
 ```php
 <?php
@@ -265,6 +275,8 @@ class usuarioController{
 ?>
 
 ```
+---
+
 # Codigo de las vistas html y php
 
 Esta es la parte visual del codigo lo que ve e interactua el usuario como tal se creo 3 vistas la principal que seria lista_usuario.php que muestra en pantalla todas las listas de los usuarios registrados en la DB la vista del editar_usuarios.php y por ultimo la vista de crear_usuario.php estas vistas se manejan por medio del index igual que todo lo demas.
@@ -274,6 +286,8 @@ Esta es la parte visual del codigo lo que ve e interactua el usuario como tal se
 # Codigo del html de la vista de lista_usuario.php
  
 ---
+
+```html
 <!DOCTYPE html>
 <!--Codigo html para visualizar el listado de los usuarios-->
 <html lang="en">
@@ -328,3 +342,6 @@ Esta es la parte visual del codigo lo que ve e interactua el usuario como tal se
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
+
+```
+
