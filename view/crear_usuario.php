@@ -12,7 +12,8 @@
     <h1>Crear un nuevo usuario</h1>
     <!--Div para el formulario de nuevos usuarios-->
     <div class="formulario">
-        <form action="">
+        <!--En esta parte del inicio del formulario se crea la ccion que va a atrapar la informacion. Esto se hace  -->
+        <form action="index.php?ejecutar=nuevoUsuarioForm" method="post>
             <div class="textform">
                 <label style="display: block"; for="">Nombre</label>
                 <input type="text">

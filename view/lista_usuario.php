@@ -13,7 +13,9 @@
     <h1>LISTADO DE USUARIOS</h1>
     <!--Div para el boton para crear nuevo usuario-->
     <div class="btn_usuario_new">            
-        <button type="button" class="btn btn-primary btn-lg">Registrar Usuario</button>
+        <a href="" class="btn btn-light btn-sm">
+                <i class="bi bi-plus-circle"></i> Nuevo Usuario
+        </a>
     </div>
     <!--Div que muestra la lista de usuarios-->
     <div class="listado">
@@ -33,7 +35,7 @@
             <!--Se crea el cuerpo (tbody) lo uqe se muestra despues del encabezado el contenido-->
             <tbody>
                 <!--Codigo php para realizar el recorrido al array y poder presentar los valores en la tabla-->
-                <?php foreach ($listado as $list):?>
+                <?php foreach ($listadoUsuarioController as $list):?>
                 <tr>
                     <td scope="row"><?php echo $list ['id'];?></td>
                     <td><?php echo ($list['name']);?></td>

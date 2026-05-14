@@ -23,7 +23,7 @@
         public function listadoUsuarioController(){
             //Se usa la misma variable que en view para que esta que tiene un array de los datos se pueda presentar, adicional se le pasa la inyeccion que es model y la funcion que esta en model
             $listado = $this -> model -> listadoUsuariosModel();
-            //Se carga la funcion o el array a view
+            //Se carga la funcion o el array a view de esa forma se evita realizar el llamado desde view lo cual rompe el MVC
             require_once "view/lista_usuario.php";
         }
 

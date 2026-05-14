@@ -275,7 +275,39 @@ class usuarioController{
         } 
 }
 ?>
+```
+---
 
+# Codigo del index
+
+El index es el encargado de manejar todo con el fin de centralizar y evitar archivos sueltos o dispersos en el proyecto por eso todo debe de pasar por el index. Como tal el index maneja la conexion a la db y al controlador nada mas  
+
+---
+```php
+<?php
+
+//Se crea la conexion a la base de datos y al controlador
+
+//En el index se usa la conexion a la Db y al controller
+require_once "config/db.php";
+require_once "controller/usuario_controller.php";
+
+//Se usa el try y catch en caso de error, para que no salga un error muy tecnico al usuario o con informacion inecesaria por eso se usa el try nada mas.
+try {
+    
+    //Se crea la conexion a la base de datos con los parametros establecidos que se encuentran en config/db.php
+    $db = new databaseConexion($host, $port, $database, $user, $pass);
+    //A la variable pdo se le pasa los valores o la conexion de la db. en la db el getConexion se usa para crear el obejto tipo conexion pdo para que otras clases se puedan conectar a la base de datos
+    $pdo = $db -> getConexion();
+    //Lo que se realiza aqui es la creacion de la instancia del objeto usuarioController y se le pasa la variable pdo la cual contiene la conexion a la base de datos
+    $controller = new usuarioController($pdo);
+
+    //Enrutamiento
+    //Se crea la variable ejecutar se le pasa la REQUEST la cual es unavariable asociativa que contiene GET, POST y COOKIE. La doble ?? a diferencia del ? que es un operador ternario que sirve para avaluar si la variable es verdadera ejemplo $a ? $b si $a es 0, un string vacio "" o false, se ira al plan b. El ?? es una coalescencia ejemplo si $a ?? $b s¿solo se va a la opcion b si la variable es nula o ne existe si $a vale 0, se queda con el 0
+    $ejecutar = $_REQUEST['ejecutar'] ?? 'listadoUsuarioController';
+} catch (\Throwable $th) {
+    
+}
 ```
 ---
 
@@ -320,8 +352,10 @@ Esta es la parte visual del codigo lo que ve e interactua el usuario como tal se
             </thead>
             <!--Se crea el cuerpo (tbody) lo uqe se muestra despues del encabezado el contenido-->
             <tbody>
-                <!--Codigo php para realizar el recorrido al array y poder presentar los valores en la tabla-->
-                <?php foreach ($listado as $list):?>
+                <!--Codigo php para realizar el recorrido al array y poder presentar los valores en la tabla. 
+                Como tal el array sale del model devuelve el array y del controller se llama a los usuarios por ende se maneja el nombre del controller.
+                porque o como funciona esto, en el html no se realiza un include o requiere a diferencia de los demas archivos para maejar la conexion entre estos porque en esta parte del controlador ya se realizo y no se debe de volver a realizar o se creara un bucle revisar codigo del controller funcion listadoUsuarioController para ver mejor.-->
+                <?php foreach ($listadoUsuarioController as $list):?>
                 <tr>
                     <td scope="row"><?php echo $list ['id'];?></td>
                     <td><?php echo ($list['name']);?></td>
