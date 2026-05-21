@@ -1,15 +1,15 @@
 <?php
     /*Parte encargada de la conexion a la db en este caso a supabase
     En cuanto al host es la url para conectar a la base de datos*/
-    $host = 'aws-1-us-west-2.pooler.supabase.com';
+    $host = '';
     // el puerto por donde se conecta
-    $port = '5432';
+    $port = '';
     // el nombre de la base de datos
-    $database = 'postgres';
+    $database = '';
     // identificador de la unico de la base de datos
-    $user = 'postgres.oklvbiyignsjsjwpiehr';
+    $user = '';
     // el password que se le coloco a la base de datos
-    $pass = 'Todoip*10crud';
+    $pass = '';
 
     /*Se va a usar la inyeccion de dependencias
     Se crea la clase para la conexion*/
